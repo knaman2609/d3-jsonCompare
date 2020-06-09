@@ -1,0 +1,291 @@
+{
+	"backgroundColor": "#F5F6F8",
+	"radioButtonPosition": "right",
+	"redirectUPI": "false",
+	"backgroundColorMobile": "#f5f6f8",
+	"checkboxSize": "22",
+	"checkboxSizeMobile": "16",
+	"combineWallets": "false",
+	"containerPadding": "0",
+	"containerPaddingMobile": "16",
+	"cornerRadius": "10.0",
+	"wrapperRadius": "10.0",
+	"wrapper": {
+		"wrapperPadding": {
+			"wrapperPaddingHorizontal": "0",
+			"wrapperPaddingTop": "0",
+			"wrapperPaddingBottom": "0"
+		}
+	},
+	"cvvInputBoxType": "boxed",
+	"cvvInputBoxRadius": "10.0",
+	"expandPopularNBView": "false",
+	"expandUpiView": "false",
+	"expandedWalletView": "true",
+	"fontColor": "#323640",
+	"addCardFontColor": "#323640",
+	"fontSize": "16",
+	"toolbarIconLocation": "left",
+	"gridFontSize": "14",
+	"gridIconSize": "32",
+	"highlight": [],
+	"highlightViewType": "list",
+	"iconSize": "35",
+	"lineSeparator": "true",
+	"listItemHeight": "60",
+	"showUPIForGuest": "false",
+	"modalView": "false",
+	"moreOption": {
+		"icon": "wallet_icon",
+		"name": "WalletFlow",
+		"view": {
+			"action": "payWithWallet",
+			"content": "editText",
+			"footer": "button",
+			"toolbar": {
+				"textColor": "#323640",
+				"back": "VISIBLE",
+				"pageTitle": "MoreOptionTitle",
+				"toolbarIcon": "arrow",
+				"toolbarIconColor": "black",
+				"textSize": "",
+				"textFont": ""
+			}
+		},
+		"visibility": "gone"
+	},
+	"offers": "gone",
+	"paymentOptions": [{
+			"group": "others",
+			"po": "askAFriend",
+			"visibility": "gone",
+			"isLast": "false"
+		},
+		{
+			"group": "others",
+			"onlyDisable": [
+				"GOOGLEPAY"
+			],
+			"po": "wallets",
+			"visibility": "VISIBLE",
+			"isLast": "false"
+		},
+
+		{
+			"group": "others",
+			"onlyDisable": [
+				"SHAREit",
+				"WhatsApp"
+			],
+			"po": "upi",
+			"visibility": "VISIBLE",
+			"isLast": "false"
+		},
+
+
+
+
+		{
+			"group": "others",
+			"onlyDisable": [],
+			"po": "cards",
+			"visibility": "VISIBLE",
+			"isLast": "false"
+		},
+		{
+			"group": "others",
+			"onlyDisable": [
+				"NB_DUMMY"
+			],
+			"po": "nb",
+			"visibility": "VISIBLE",
+			"isLast": "true"
+		}
+
+	],
+	"popularBanks": [
+		"NB_AXIS",
+		"NB_ICICI",
+		"NB_SBI",
+		"NB_HDFC"
+	],
+	"upiQREnable": "false",
+	"primaryColor": "#28B3E3",
+	"primaryFont": "Arial",
+	"saved": {
+		"otherSaved": "visible",
+		"preffered": "visible",
+		"saved": "visible"
+	},
+	"screenTransition": {
+		"curve": [
+			"0.1",
+			"0.4",
+			"0.4",
+			"0.9"
+		],
+		"duration": "200"
+	},
+	"spacing": "24",
+	"toolbar": {
+		"textColor": "#323640",
+		"back": "VISIBLE",
+		"pageTitle": "Payment Methods",
+		"toolbarIcon": "arrow",
+		"toolbarIconColor": "black",
+		"textSize": "",
+		"textFont": ""
+	},
+	"toolbarColor": "#FBBA19",
+	"upiCollectWithGodel": "false",
+	"verifyMobile": "true",
+	"useCurvedPaymentOption": "true",
+	"paymentOptionShadow": "6.0",
+	"useSeperatedSections": "true",
+	"paymentOptionFontFace": "Regular",
+	"searchBoxCornerRadius": "",
+	"strechedConfirmButton": "",
+	"showlineSepOnSeprateSections": "true",
+	"hideLastDivider": "true",
+	"textGravity": "",
+	"savedOptionsWeb": "false",
+	"topBar": {
+		"backgroundColor": "#ffffff",
+		"height": "70",
+		"visibility": "true",
+		"primaryFontSize": "22",
+		"secondaryFontSize": "12",
+		"summaryTitleOne": "Mobile Number",
+		"summaryTitleTwo": "Destination",
+		"summaryTextOne": "customer_phone",
+		"summaryTextTwo": "udf1",
+		"fontColor": "#323640",
+		"font": "Arial"
+	},
+	"topBarMobile": {
+		"backgroundColor": "#ffffff",
+		"height": "70",
+		"visibility": "true",
+		"primaryFontSize": "22",
+		"secondaryFontSize": "12",
+		"summaryTitleOne": "Mobile Number",
+		"summaryTitleTwo": "Destination",
+		"summaryTextOne": "customer_phone",
+		"summaryTextTwo": "udf1",
+		"fontColor": "#323640",
+		"font": "Arial"
+	},
+	"sideBarNav": "",
+	"sideBarNavDirection": "",
+	"isInputBoxed": "false",
+	"verifyVPA": "false",
+	"guestUserAllowed": "true",
+	"wrapperColor": "#ffffff",
+	"curvedWrapperColor": "#ffffff",
+	"isButtonGradient": "false",
+	"buttonGradient": {
+		"gradtype": "radial",
+		"angle": "90",
+		"values": ["#123123", "#321321"]
+	},
+	"cvvToolTip": "true",
+	"saveCardToolTip": "false",
+	"mainBackground": "#323640",
+	"iconUrl": "",
+	"nbLayout": "horizontal",
+	"defaultOptionSelect": "false",
+	"iconUrlNonSelected": "circular_radio_button",
+	"backIcon": "",
+	"backIconMobile": "",
+	"addIconBackground": "#ffffff",
+	"addIconColor": "#363636",
+	"errorTextColor": "#F71212",
+	"logoMargin": "",
+	"logoBackground": "",
+	"logoRadius": "",
+	"useBackgroundImage": "false",
+	"hideOrderSummary": "false",
+	"hideTopToolBar": "false",
+	"internationalCardsAllowed": "true",
+	"button": {
+		"colorActive": "#28B3E3",
+		"alphaActive": "1",
+		"colorInactive": "#28B3E3",
+		"alphaInactive": "0.3",
+		"height": "48",
+		"width": "250"
+	},
+	"textBox": {
+		"activeColor": "#999999",
+		"inactiveColor": "#d3d3d3",
+		"errorColor": "#e60000",
+		"borderWidth": "2"
+	},
+	"sideBar": {
+		"selectedColor": "#323640",
+		"notSelectedColor": "#ffffff",
+		"iconVisibility": "true",
+		"selectedFontColor": "#323640",
+		"notSelectedFontColor": "#323640",
+		"tabColor": "#323640",
+		"fontSize": "18",
+		"tabHeight": "100",
+		"width": "262",
+		"border": "",
+		"selectedFontWeight": "bold",
+		"notSelectedFontWeight": "regular"
+	},
+	"useLocalIcons": "false",
+	"sectionHeader": {
+		"fontColor": "#008080",
+		"fontSize": "12",
+		"fontWeight": "bold",
+		"letterSpacing": "0.0"
+	},
+	"mainHeader": {
+		"fontColor": "#008080",
+		"fontSize": "19",
+		"fontWeight": "regular",
+		"letterSpacing": "0.0"
+	},
+	"paymentOption": {
+		"primary": {
+			"fontColor": "#323640",
+			"fontSize": "14",
+			"fontWeight": "regular",
+			"letterSpacing": "0.0"
+		},
+		"secondary": {
+			"fontColor": "#999999",
+			"fontSize": "12",
+			"fontWeight": "regular",
+			"letterSpacing": "0.0"
+		},
+		"tertiary": {
+			"fontColor": "#999999",
+			"fontSize": "12",
+			"fontWeight": "regular",
+			"letterSpacing": "0.0"
+		},
+		"border": "",
+		"paddingVertical": "10",
+		"paddingHorizontal": "24",
+		"paddingSecondaryTop": "0",
+		"paddingTertiaryTop": "0",
+		"paddingBottom": "15",
+		"paddingOuterVertical": "0",
+		"paddingOuterHorizontal": "0",
+		"shadow": "0.0"
+	},
+	"ppBorderContainer": {
+		"paddingTop": "0",
+		"paddingBottom": "0",
+		"paddingHorizontal": "0",
+		"backgroundColor": "#ffffff"
+	},
+	"paymentOptionErrors": [],
+	"outageConfig": {
+		"outageType": "warn",
+		"message": "Experiencing low success rate on "
+	}
+}

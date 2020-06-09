@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style> /* set the CSS */
+
+ .node circle {
+     fill: #fff;
+     stroke: steelblue;
+     stroke-width: 3px;
+ }
+
+ .node text { font: 12px sans-serif; }
+
+ .node--internal text {
+     text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
+ }
+
+ .link {
+     fill: none;
+     stroke: #ccc;
+     stroke-width: 2px;
+ }
+
+ #web {
+     position: absolute;
+     right: 100px;
+ }
+
+</style>
+
+<body>
+
+    <!-- load the d3.js library -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    <script src="superconfig.js"></script>
+
+    <select onchange="setOnlyShow()" id="comps">
+        <option value="all">All</option>
+        <option value="toolbar,topBar,topBarMobile">Toolbar</option>
+        <option value="amountBar,topBar,topBarMobile">OrderSummary</option>
+        <option value="sectionHeader">SectionHeader</option>
+        <option value="paymentOptions">PamentOptions</option>
+        <option value="labelButton">Label</option>
+        <option value="inputField,textBox">InputBox</option>
+        <option value="button">Button</option>
+        <option value="uiCard">UICard</option>
+        <option value="globalStyles">Global</option>
+    </select>
+
+    <div id="web"></div>
+    <div id="android"></div>
+
+    <script>
+
+     function setOnlyShow() {
+         var x = document.getElementById("comps").value;
+
+         window.showLevels = 4;
+         var _x = x.split(",");
+         if (_x[0] == "all")
+             window.onlyShow =null;
+         else if (_x[0] == "globalStyles") {
+             window.onlyShow = null;
+             window.showLevels = 1;
+         } else
+            window.onlyShow = _x;
+
+         document.getElementById("web").innerHTML = "";
+         document.getElementById("android").innerHTML = "";
+
+         createTree("#android");
+         createTree("#web");
+     }
+
+     function formatRecursive(treeData, json ,level) {
+         if (! (typeof treeData == "object"))
+             return
+
+         var keys = Object.keys(treeData);
+
+
+         for (var i=0;i<keys.length;i++) {
+             var lastLevelObject = false;
+
+             if (window.showLevels == level && (typeof treeData[keys[i]] == "object"))
+                 lastLevelObject = true;
+
+             if (!lastLevelObject)
+                 json.children.push({name: keys[i], children: [] });
+
+
+             if (level < showLevels)  {
+                 var lastElementPushedIndex = json.children.length - 1;
+                 formatRecursive (treeData[keys[i]], json.children[lastElementPushedIndex], level + 1);
+             }
+
+         }
+     }
+
+     function createOnlyShowTreeData(treeData) {
+         if (! (typeof treeData == "object"))
+             return
+
+         var keys = Object.keys(treeData);
+
+         for (var i=0;i<keys.length;i++) {
+             if (window.onlyShow.indexOf(keys[i]) > -1) {
+                 if (window.onlyShowTreeData[keys[i]])
+                 window.onlyShowTreeData[keys[i] + "1"] = treeData[keys[i]];
+                 else
+                 window.onlyShowTreeData[keys[i]] = treeData[keys[i]];
+             }
+
+
+
+             createOnlyShowTreeData (treeData[keys[i]]);
+         }
+
+    }
+
+
+     function formatData(treeData, id) {
+         var keys = Object.keys(treeData);
+
+         var json = {"name": id , children: []};
+
+
+         if (window.onlyShow) {
+             window.onlyShowTreeData = {};
+             createOnlyShowTreeData(treeData);
+             formatRecursive(onlyShowTreeData,json , 1);
+             console.log(json);
+         } else {
+             formatRecursive(treeData,json , 1);
+             console.log(json);
+         }
+
+         return  json;
+     }
+
+     function createTree(id) {
+        var margin = {top: 20, right: 90, bottom: 30, left: 90},
+            width = window.width - margin.left - margin.right,
+            height = window.getHeight() - margin.top - margin.bottom;
+
+        var treemap = d3.tree()
+        .size([height, width]);
+
+         var file;
+         if (id == "#android")
+             file = "android.json";
+         else
+             file = "web.json";
+
+        d3.json(file, function(error, data) {
+            if (error) {
+                console.log(error);
+                return;
+            }
+
+            var treeData = formatData(data, id)
+
+            var nodes = d3.hierarchy(treeData, function(d) {
+                return d.children;
+            });
+
+            nodes = treemap(nodes);
+
+            var svg = d3.select(id).append("svg")
+                        .attr("width", width + margin.left + margin.right)
+                        .attr("height", height + margin.top + margin.bottom),
+                g = svg.append("g")
+                        .attr("transform",
+                            "translate(" + margin.left + "," + margin.top + ")");
+
+            var link = g.selectAll(".link")
+                        .data( nodes.descendants().slice(1))
+                        .enter().append("path")
+                        .attr("class", "link")
+                        .attr("d", function(d) {
+                            return "M" + (d.y - 20)  + "," + (d.x  - 10)
+                                + "C" + (d.y + d.parent.y) / 2 + "," + d.x
+                                 + " " + (d.y + d.parent.y) / 2 + "," + d.parent.x
+                                + " " + d.parent.y + "," + d.parent.x;
+                        });
+
+            var node = g.selectAll(".node")
+                        .data(nodes.descendants())
+                        .enter().append("g")
+                        .attr("class", function(d) {
+                            return "node" +
+        (d.children ? " node--internal" : " node--leaf"); })
+                        .attr("transform", function(d) {
+                            return "translate(" + (d.y - 20) + "," + d.x + ")"; });
+
+            node.append("circle")
+                .attr("r", 10)
+                .style("fill", function (d) { return superconfig(d.data.name); })
+
+            node.append("text")
+                .attr("dy", ".35em")
+                .attr("x", function(d) { return d.children ? -13 : 13; })
+                .style("text-anchor", function(d) {
+                    return d.children ? "end" : "start"; })
+                .text(function(d) { return d.data.name; })
+
+        });
+     }
+
+     createTree("#android");
+     createTree("#web");
+
+
+    </script>
+</body>

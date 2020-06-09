@@ -1,0 +1,147 @@
+<style>
+ * {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 5px;
+     margin: 5px;
+ }
+
+ .level0 {
+     background: #ffccff;
+     width: 200px;
+     height: 200px;
+     display: inline-block;
+ }
+
+ .level1 {
+     background: #ff00ff;
+     display: inline-block;
+     width: 50px;
+     height:50px;
+ }
+
+ .level2 {
+     background: #000000;
+     display: inline-block;
+     width: 20px;
+     height: 20px;
+ }
+
+ .levelMore{
+     background: #0000ff;
+     display: inline-block;
+     width: 10px;
+     height: 10px;
+ }
+
+</style>
+<div id="content"> </div>
+<script>
+
+ var rootId = "content";
+ var level0Count = 1;
+ var nestingLevel = 6;
+ var siblingsPerNesting = 10;
+
+ var css = {
+     level0 : {
+         background: "#ffccff",
+         width: "200px",
+         height: "200px",
+         display: "inline-block"
+     },
+     level1 : {
+         background: "#ff00ff",
+         display: "inline-block",
+         width: "50px",
+         height: "50px",
+     },
+     level2 : {
+         background: "#000000",
+         display: "inline-block",
+         width: "20px",
+         height: "20px",
+     },
+     levelMore : {
+         background: "#0000ff",
+         display: "inline-block",
+         width: "10px",
+         height: "10px",
+     }
+ }
+
+
+
+
+ function applyClass(element, className) {
+     element.className = className
+ }
+
+ function applyStyle(element, style) {
+     var keys = Object.keys(style);
+
+     for (var i =0; i< keys.length; i++ ) {
+         element.style[keys[i]] = style[keys[i]];
+     }
+ }
+
+ function applyNestingRecursive(node, _nestingLevel, siblingsPerNesting, styleType){
+     if (_nestingLevel <= 0)
+         return;
+
+
+     for (var i =0; i<siblingsPerNesting; i++) {
+         var child = document.createElement("div");
+
+         var level  = nestingLevel - _nestingLevel + 1;
+         if (level  > 2)
+             level = "More";
+
+         if (styleType == "inline") {
+             applyStyle(child, css["level" + level]);
+         } else {
+             applyClass(child, "level" + level);
+         }
+
+         node.appendChild(child);
+
+         applyNestingRecursive(child, _nestingLevel - 1 ,siblingsPerNesting, styleType);
+     }
+ }
+
+ function renderWithInline() {
+     var root = document.getElementById("content");
+     var app = document.createElement("div");
+
+     console.log("renderWithInline");
+
+     for (i =0; i<level0Count; i++) {
+         var child = document.createElement("div");
+         applyStyle(child, css.level0);
+         applyNestingRecursive(child, nestingLevel, siblingsPerNesting, "inline");
+         app.appendChild(child);
+     }
+
+     root.appendChild(app);
+ }
+
+
+ function renderCssReffered() {
+     console.log("renderCssReffered");
+
+     var root = document.getElementById("content");
+     var app = document.createElement("div");
+
+     for (i =0; i<level0Count; i++) {
+         var child = document.createElement("div");
+         applyClass(child, "level0");
+         applyNestingRecursive(child, nestingLevel, siblingsPerNesting , "css");
+         app.appendChild(child);
+     }
+
+     root.appendChild(app);
+ }
+
+ setTimeout(renderCssReffered, 500);
+// setTimeout(renderWithInline, 5000);
+</script>
