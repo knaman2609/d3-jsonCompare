@@ -45,6 +45,8 @@
         <option value="button">Button</option>
         <option value="uiCard">UICard</option>
         <option value="globalStyles">Global</option>
+        <option value="font">Font</option>
+        <option value="color">Color</option>
     </select>
 
     <div id="web"></div>
@@ -97,6 +99,21 @@
          }
      }
 
+     function isPresentInOnlyShow(key) {
+         var isPresent = false;
+
+         for (var i=0;i<window.onlyShow.length;i++) {
+             if (key.toLowerCase().includes(onlyShow[i]))
+                 isPresent = true;
+         }
+
+         return isPresent;
+     }
+
+     function randomIntFromInterval(min, max) { // min and max included 
+         return Math.floor(Math.random() * (max - min + 1) + min);
+     }
+
      function createOnlyShowTreeData(treeData) {
          if (! (typeof treeData == "object"))
              return
@@ -104,9 +121,9 @@
          var keys = Object.keys(treeData);
 
          for (var i=0;i<keys.length;i++) {
-             if (window.onlyShow.indexOf(keys[i]) > -1) {
+             if (isPresentInOnlyShow(keys[i]))  {
                  if (window.onlyShowTreeData[keys[i]])
-                 window.onlyShowTreeData[keys[i] + "1"] = treeData[keys[i]];
+                     window.onlyShowTreeData[keys[i] + randomIntFromInterval(0,100) ] = treeData[keys[i]];
                  else
                  window.onlyShowTreeData[keys[i]] = treeData[keys[i]];
              }

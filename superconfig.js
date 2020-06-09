@@ -45,7 +45,6 @@ window.superconfig = function(name) {
     ]
   }
 
-
   return "#ffffff";
 
   if (config.style.indexOf(name) > -1) {
