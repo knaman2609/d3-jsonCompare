@@ -49,6 +49,12 @@
         <option value="color">Color</option>
         <option value="margin">Margin</option>
         <option value="padding">Padding</option>
+        <option value="grid">Grid</option>
+        <option value="nb">NB</option>
+        <option value="card">AddCard</option>
+        <option value="upi">UPI</option>
+        <option value="wallet">Wallet</option>
+
     </select>
 
     <div id="web"></div>
@@ -104,8 +110,10 @@
      function isPresentInOnlyShow(key) {
          var isPresent = false;
 
+         console.log(key);
+
          for (var i=0;i<window.onlyShow.length;i++) {
-             if (key.toLowerCase().includes(onlyShow[i]))
+             if (key.toLowerCase().includes(window.onlyShow[i].toLowerCase()))
                  isPresent = true;
          }
 
