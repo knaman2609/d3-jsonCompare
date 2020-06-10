@@ -36,7 +36,7 @@
 
     <select onchange="setOnlyShow()" id="comps">
         <option value="all">All</option>
-        <option value="toolbar,topBar,topBarMobile">Toolbar</option>
+        <option value="toolbar">Toolbar</option>
         <option value="amountBar,topBar,topBarMobile">OrderSummary</option>
         <option value="sectionHeader">SectionHeader</option>
         <option value="paymentOptions">PamentOptions</option>
@@ -54,6 +54,9 @@
         <option value="card">AddCard</option>
         <option value="upi">UPI</option>
         <option value="wallet">Wallet</option>
+        <option value="text">Text</option>
+        <option value="shadow">Shadow</option>
+        <option value="letterSpacing">Letter Spacing</option>
 
     </select>
 
@@ -65,15 +68,31 @@
      function setOnlyShow() {
          var x = document.getElementById("comps").value;
 
-         window.showLevels = 4;
+        window.showLevels = 4;
+        window.onlyShow  = null;
+        window.showParent = false;
+
          var _x = x.split(",");
-         if (_x[0] == "all")
-             window.onlyShow =null;
-         else if (_x[0] == "globalStyles") {
-             window.onlyShow = null;
+         if (x == "all") {
+            window.onlyShow = false;
+         } else if (x == "globalStyles") {
              window.showLevels = 1;
+         }  else if (
+            x == "text" ||  
+            x == "padding" ||  
+            x == "margin" || 
+            x == "color" || 
+            x == "font" || 
+            x == "shadow" || 
+            x == "letterSpacing"
+            ) {
+
+            window.showParent = true; 
+            window.onlyShow = _x;
          } else
             window.onlyShow = _x;
+
+        
 
          document.getElementById("web").innerHTML = "";
          document.getElementById("android").innerHTML = "";
@@ -81,6 +100,7 @@
          createTree("#android");
          createTree("#web");
      }
+
 
      function formatRecursive(treeData, json ,level) {
          if (! (typeof treeData == "object"))
@@ -110,7 +130,6 @@
      function isPresentInOnlyShow(key) {
          var isPresent = false;
 
-         console.log(key);
 
          for (var i=0;i<window.onlyShow.length;i++) {
              if (key.toLowerCase().includes(window.onlyShow[i].toLowerCase()))
@@ -124,37 +143,60 @@
          return Math.floor(Math.random() * (max - min + 1) + min);
      }
 
-     function createOnlyShowTreeData(treeData) {
+     function createOnlyShowTreeData(treeData, level, root) {
          if (! (typeof treeData == "object"))
              return
 
          var keys = Object.keys(treeData);
 
          for (var i=0;i<keys.length;i++) {
+            var objectToAdd;
+            var keyName;
+            var tempKeyName;
+
              if (isPresentInOnlyShow(keys[i]))  {
-                 if (window.onlyShowTreeData[keys[i]])
-                     window.onlyShowTreeData[keys[i] + randomIntFromInterval(0,100) ] = treeData[keys[i]];
-                 else
-                 window.onlyShowTreeData[keys[i]] = treeData[keys[i]];
+                if (window.showParent  && level > 1)  {
+                    objectToAdd = root.value
+                    tempKeyName = root.key;
+                } else {
+                    objectToAdd = treeData[keys[i]] ;
+                    tempKeyName = keys[i];  
+
+                }
+
+                
+                if (window.onlyShowTreeData[tempKeyName] && !window.showParent) {
+                    keyName = tempKeyName + randomIntFromInterval(0,100); 
+                } else {
+                    keyName = tempKeyName;
+                }
+
+                
+                window.onlyShowTreeData[keyName] = objectToAdd;
              }
 
 
+            if (level == 1)  
+            root = {key: keys[i], value: treeData[keys[i]]};
 
-             createOnlyShowTreeData (treeData[keys[i]]);
+
+            createOnlyShowTreeData (treeData[keys[i]], level + 1, root);
          }
 
     }
 
+    
 
-     function formatData(treeData, id) {
+    function formatData(treeData, id) {
          var keys = Object.keys(treeData);
+
 
          var json = {"name": id , children: []};
 
 
          if (window.onlyShow) {
              window.onlyShowTreeData = {};
-             createOnlyShowTreeData(treeData);
+             createOnlyShowTreeData(treeData, 1);
              formatRecursive(onlyShowTreeData,json , 1);
              console.log(json);
          } else {

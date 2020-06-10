@@ -1,12 +1,17 @@
 window.showLevels = 4;
 window.onlyShow  = null;
+window.showParent = false;
 window.width = 600;
-window.getHeight = function() {
+
+window.getHeight = function() { 
+  if (showParent)
+    return 2000;
+
   if (window.onlyShow)
-    return window.onlyShow.length * 350
+    return window.onlyShow.length * 550
   else  if (window.showLevels == 1) {
-    return 1000;
-  }
+    return 2000;
+  } 
 
   return 4000;
 }
