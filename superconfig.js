@@ -58,7 +58,9 @@ window.superconfig = function(name) {
         else if (onlyShow[i] == "font") return "#000000"  
         else if (onlyShow[i] == "padding") return "#ffccff" 
         else if (onlyShow[i] == "margin") return "#00ffff" 
-        else return "ff7abe"
+        else if (onlyShow[i] == "font") return "ff7abe"
+        else return "ffffbe"
+
       }
     }
   }
