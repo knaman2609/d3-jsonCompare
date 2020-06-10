@@ -35,25 +35,6 @@
 	"listItemHeight": "60",
 	"showUPIForGuest": "false",
 	"modalView": "false",
-	"moreOption": {
-		"icon": "wallet_icon",
-		"name": "WalletFlow",
-		"view": {
-			"action": "payWithWallet",
-			"content": "editText",
-			"footer": "button",
-			"toolbar": {
-				"textColor": "#323640",
-				"back": "VISIBLE",
-				"pageTitle": "MoreOptionTitle",
-				"toolbarIcon": "arrow",
-				"toolbarIconColor": "black",
-				"textSize": "",
-				"textFont": ""
-			}
-		},
-		"visibility": "gone"
-	},
 	"offers": "gone",
 	"paymentOptions": [{
 			"group": "others",

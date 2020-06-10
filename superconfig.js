@@ -50,6 +50,19 @@ window.superconfig = function(name) {
     ]
   }
 
+ 
+  if (window.onlyShow && window.showParent) {
+    for (var i=0;i<window.onlyShow.length;i++) {
+      if (name.toLowerCase().includes(window.onlyShow[i].toLowerCase()))  {
+        if (onlyShow[i] == "color") return "#b2ff78"  
+        else if (onlyShow[i] == "font") return "#000000"  
+        else if (onlyShow[i] == "padding") return "#ffccff" 
+        else if (onlyShow[i] == "margin") return "#00ffff" 
+        else return "ff7abe"
+      }
+    }
+  }
+
   return "#ffffff";
 
   if (config.style.indexOf(name) > -1) {

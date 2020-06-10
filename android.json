@@ -16,28 +16,6 @@
   "lineSeparatorColor": "#FFFFFF",
     "listItemHeight": "60",
     "modalView": "false",
-    "moreOption": {
-      "icon": "wallet_icon",
-      "name": "WalletFlow",
-      "view": {
-        "action": "payWithWallet",
-        "content": "editText",
-        "footer": "button",
-        "toolbar": {
-          "back": "VISIBLE",
-          "pageTitle": "MoreOptionTitle",
-          "textSize": 18,
-          "textFontFace": "Bold",
-          "textColor": "#333333",
-          "drawFromStatusBar": "false",
-          "color": "#FBBA19",
-          "useImageBackground": "true",
-          "translation": "0.0",
-          "height": "64"
-        }
-      },
-      "visibility": "gone"
-    },
     "offers": "visible",
     "offerOptions" : [
       {
