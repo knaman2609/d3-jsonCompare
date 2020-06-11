@@ -1,270 +1,306 @@
 {
-    "backgroundColor": "#f5f6f8",
-    "checkboxSize": "18",
-    "combineWallets": "false",
-    "expandPopularNBView": "true",
-    "expandUpiView": "false",
-    "expandedWalletView": "true",
-    "fontColor": "#040404",
-    "tertiaryFontColor": "#00b137",
-    "fontSize": "14",
-    "highlight": [],
-    "highlightViewType": "list",
-    "iconSize": "38",
-    "buttonText": "Proceed to Pay",
-    "lineSeparator": "true",
+  "backgroundColor": "#f5f6f8",
+  "checkboxSize": "18",
+  "combineWallets": "false",
+  "expandPopularNBView": "true",
+  "expandUpiView": "false",
+  "expandedWalletView": "true",
+  "fontColor": "#040404",
+  "tertiaryFontColor": "#00b137",
+  "fontSize": "14",
+  "highlight": [],
+  "highlightViewType": "list",
+  "iconSize": "38",
+  "buttonText": "Proceed to Pay",
+  "lineSeparator": "true",
   "lineSeparatorColor": "#FFFFFF",
-    "listItemHeight": "60",
-    "modalView": "false",
-    "offers": "visible",
-    "offerOptions" : [
-      {
-          "group": "others",
-          "po": "savedWallets",
-          "visibility": "VISIBLE"
-      },
-      {
-          "group": "others",
-          "po": "nb",
-          "visibility": "VISIBLE"
-      },
-      {
-          "group": "others",
-          "po": "upi",
-          "visibility": "VISIBLE"
-      },
-      {
-          "group": "others",
-          "po": "savedVPAs",
-          "visibility": "VISIBLE"
-      },
-      {
-          "group": "others",
-          "po": "unlinkedWallets",
-          "visibility": "VISIBLE"
-      }
-    ],
-    "paymentOptions": [{
-        "group": "others",
-        "po": "askAFriend",
-        "visibility": "gone"
-      },
-      {
-        "group": "others",
-        "po": "wallets",
-        "visibility": "VISIBLE"
-      },
-      {
-        "group": "others",
-        "onlyDisable": [
-          "SHAREit",
-          "WhatsApp"
-        ],
-        "po": "upiAppsWithOther",
-        "visibility": "visible"
-      },
-      {
-        "group": "others",
-        "po": "payLater",
-        "visibility": "VISIBLE"
-      },
-      {
-        "group": "others",
-        "onlyDisable": [],
-        "po": "cards",
-        "visibility": "VISIBLE"
-      },
-      {
-        "group": "others",
-        "onlyDisable": [
-          "NB_DUMMY",
-          "NB_SBM",
-          "NB_SBT"
-        ],
-        "po": "nb",
-        "visibility": "VISIBLE"
-      }
-    ],
-    "popularBanks": [
-      "NB_AXIS",
-      "NB_ICICI",
-      "NB_SBI",
-      "NB_CANR"
-    ],
-    "primaryColor": "#0071BC",
-    "primaryFont": "Arial",
-    "saved": {
-      "otherSaved": "visible",
-      "preffered": "visible",
-      "saved": "VISIBLE"
-    },
-    "screenTransition": {
-      "curve": [
-        "0.1",
-        "0.4",
-        "0.4",
-        "0.9"
-      ],
-      "duration": "200"
-    },
-    "toolbar": {
-      "back": "VISIBLE",
-      "pageTitle": "Payment Methods",
-      "textSize": 18,
-      "textFontFace": "Regular",
-      "textColor": "#333333",
-      "drawFromStatusBar": "true",
-      "color": "#FBBA19",
-      "useImageBackground": "true",
-      "translation": "5.0",
-      "height": "64"
-    },
-    "amountBar": {
-      "amountBarData": [{
-        "leftString": "Mobile Number",
-        "textFontFace": "Regular",
-        "fontSize": "14",
-        "color": "#6b6b6b"
-      }, {
-        "leftString": "phoneNumber",
+  "listItemHeight": "60",
+  "modalView": "false",
+  "moreOption": {
+    "icon": "wallet_icon",
+    "name": "WalletFlow",
+    "view": {
+      "action": "payWithWallet",
+      "content": "editText",
+      "footer": "button",
+      "toolbar": {
+        "back": "VISIBLE",
+        "pageTitle": "MoreOptionTitle",
+        "textSize": 18,
         "textFontFace": "Bold",
-        "fontSize": "16",
-        "color": "#000000"
-      }],
-      "placeAmountAtRight": "true",
-      "amountTextSize": "20",
-      "attachOnTop": "true",
-      "attachOnAllScreens": "true",
-      "visibility": "visible",
-      "verticalPadding": "8",
-      "translation": "5.0",
-      "color": "#ffffff",
-      "addDivider": "false",
-      "dividerColor": "#000000"
+        "textColor": "#333333",
+        "drawFromStatusBar": "false",
+        "color": "#FBBA19",
+        "useImageBackground": "true",
+        "translation": "0.0",
+        "height": "64"
+      }
     },
-    "button": {
-      "background": "#ffffff",
-      "color": "#0071BC",
-      "useGradient": "false",
-      "gradient": {
-        "from": "",
-        "to": "",
-        "direction": "HORIZONTAL"
-      },
-      "atBottom": "true",
-      "cornerRadius": "5.0",
-      "changeText": "true",
-      "translation": "0.0"
+    "visibility": "gone"
+  },
+  "offers": "visible",
+  "offerOptions": [{
+      "group": "others",
+      "po": "savedWallets",
+      "visibility": "VISIBLE"
     },
-    "headerProps": {
-      "size": "16",
-      "color": "#333333",
-      "fontFace": "Bold",
-      "bottomMargin": "0"
+    {
+      "group": "others",
+      "po": "nb",
+      "visibility": "VISIBLE"
     },
-    "containerAttribs": {
-      "horizontalSpacing": "12",
-      "verticalSpacing": "24",
-      "sectionSpacing": "24"
+    {
+      "group": "others",
+      "po": "upi",
+      "visibility": "VISIBLE"
     },
-    "uiCard": {
-      "translation": "4.0",
-      "cornerRadius": "5.0",
-      "horizontalPadding": "12",
-      "verticalPadding": "16",
-      "color": "#ffffff"
+    {
+      "group": "others",
+      "po": "savedVPAs",
+      "visibility": "VISIBLE"
     },
-  "inputField": {
-      "type": "boxed",
-      "useMaterialView": "false",
-      "cornerRadius": "4.0",
-      "focusColor": "#0071BC",
-      "textPadding": "5",
-      "background": "#ffffff",
-      "fontStyle": "Bold",
-      "labelFontFace" : "Bold",
-      "labelFontSize" : "12",
-      "labelFontColor" : "#131313"
-    },
-    "secondaryButton": {
-      "useNavigationArrow": "false",
-      "width": "WRAP_CONTENT",
-      "height": "27",
-      "buttonAlignment": "LEFT",
-      "buttonBackground": "#ebebeb",
-      "buttonCornerRadius": "12.0",
-      "textColor": "#000000",
-      "textSize": "15",
-      "fontFace": "Regular"
-    },
-    "labelButton": {
-      "color": "#ebebeb",
-      "textColor": "#000000",
-      "textFontFace": "Regular",
-      "cornerRadius": "12.0",
-      "textSize": "15",
-      "height": "27"
-    },
-    "attachPOHeaders": "true",
-    "upiCollectWithGodel": "false",
-    "verifyMobile": "true",
-    "useSeperatedSections": "true",
-    "verifyVpa": "false",
-    "language": "english",
-    "labelBackground": "#EBEBEB",
-    "topRowVisibility": "false",
-    "showSearchBoxStroke": "true",
-    "showProcessingPayment": "true",
-    "bottomMargin": "16",
-    "widgets": {
-      "allowed": ["quickPay", "paymentPage"],
-      "primary": "quickPay"
-      },
-    "useQuickPayRanking": "false",
-    "paymentOptionFontFace": "SemiBold",
-    "gridProps": {
-      "useTick": "false",
-      "useStroke": "false",
-      "itemSize": "60",
-      "gridSelectedStroke": "",
-      "gridViewBackground": "#ffffff",
-      "horizontalFade": "true",
-      "fadingEdgeLength": "150",
-      "gridLogoStroke": "",
-      "useButtonForSelection": "false",
-      "strokeCornerRadius": "",
-      "gridFontSize": "14",
-      "gridIconSize": "38"
-    },
-    "mandateViewProps": {
-      "textColor" : "#a58a21",
-      "backgroundColor" : "#f4efd3",
-      "cornerRadius" : "5.0",
-      "padding" : { "left" : "3" , "right" : "6" , "vertical" : "10"  },
-      "textSize" : "12"
-    },
-    "offerViewProps": {
-      "textColor" : "#a58a21",
-      "backgroundColor" : "#f4efd3",
-      "cornerRadius" : "4.0",
-      "padding" : { "left" : "10" , "right" : "8" , "vertical" : "10" },
-      "textSize" : "12"
-    },
-    "mandateInstruments" : [],
-    "highlightMessage" : {
-      "textColor" : "#000000",
-      "backgroundColor" : "#f0f0f0",
-      "textFontFace" : "Regular",
-      "padding" : { "vertical" : "10" , "horizontal" : "14" }
-    },
-    "outageViewProps": {
-      "showOutageView" : "true",
-      "textColor" : "#FF1E0C",
-      "backgroundColor" : "#ffffff",
-      "cornerRadius" : "4.0",
-      "padding" : { "left" : "0" , "right" : "0" , "vertical" : "0"  },
-      "textSize" : "12",
-      "outageMessage" : "Experiencing low success rates for",
-      "restrictPayment" : "false"
+    {
+      "group": "others",
+      "po": "unlinkedWallets",
+      "visibility": "VISIBLE"
     }
+  ],
+  "paymentOptions": [{
+      "group": "others",
+      "po": "askAFriend",
+      "visibility": "gone"
+    },
+    {
+      "group": "others",
+      "po": "wallets",
+      "visibility": "VISIBLE"
+    },
+    {
+      "group": "others",
+      "onlyDisable": [
+        "SHAREit",
+        "WhatsApp"
+      ],
+      "po": "upiAppsWithOther",
+      "visibility": "visible"
+    },
+    {
+      "group": "others",
+      "po": "payLater",
+      "visibility": "VISIBLE"
+    },
+    {
+      "group": "others",
+      "onlyDisable": [],
+      "po": "cards",
+      "visibility": "VISIBLE"
+    },
+    {
+      "group": "others",
+      "onlyDisable": [
+        "NB_DUMMY",
+        "NB_SBM",
+        "NB_SBT"
+      ],
+      "po": "nb",
+      "visibility": "VISIBLE"
+    }
+  ],
+  "popularBanks": [
+    "NB_AXIS",
+    "NB_ICICI",
+    "NB_SBI",
+    "NB_CANR"
+  ],
+  "primaryColor": "#0071BC",
+  "primaryFont": "Arial",
+  "saved": {
+    "otherSaved": "visible",
+    "preffered": "visible",
+    "saved": "VISIBLE"
+  },
+  "screenTransition": {
+    "curve": [
+      "0.1",
+      "0.4",
+      "0.4",
+      "0.9"
+    ],
+    "duration": "200"
+  },
+  "toolbar": {
+    "back": "VISIBLE",
+    "pageTitle": "Payment Methods",
+    "textSize": 18,
+    "textFontFace": "Regular",
+    "textColor": "#333333",
+    "drawFromStatusBar": "true",
+    "color": "#FBBA19",
+    "useImageBackground": "true",
+    "translation": "5.0",
+    "height": "64"
+  },
+  "amountBar": {
+    "amountBarData": [{
+      "leftString": "Mobile Number",
+      "textFontFace": "Regular",
+      "fontSize": "14",
+      "color": "#6b6b6b"
+    }, {
+      "leftString": "phoneNumber",
+      "textFontFace": "Bold",
+      "fontSize": "16",
+      "color": "#000000"
+    }],
+    "placeAmountAtRight": "true",
+    "amountTextSize": "20",
+    "attachOnTop": "true",
+    "attachOnAllScreens": "true",
+    "visibility": "visible",
+    "verticalPadding": "8",
+    "translation": "5.0",
+    "color": "#ffffff",
+    "addDivider": "false",
+    "dividerColor": "#000000"
+  },
+  "button": {
+    "background": "#ffffff",
+    "color": "#0071BC",
+    "useGradient": "false",
+    "gradient": {
+      "from": "",
+      "to": "",
+      "direction": "HORIZONTAL"
+    },
+    "atBottom": "true",
+    "cornerRadius": "5.0",
+    "changeText": "true",
+    "translation": "0.0"
+  },
+  "headerProps": {
+    "size": "16",
+    "color": "#333333",
+    "fontFace": "Bold",
+    "bottomMargin": "0"
+  },
+  "containerAttribs": {
+    "horizontalSpacing": "12",
+    "verticalSpacing": "24",
+    "sectionSpacing": "24"
+  },
+  "uiCard": {
+    "translation": "4.0",
+    "cornerRadius": "5.0",
+    "horizontalPadding": "12",
+    "verticalPadding": "16",
+    "color": "#ffffff"
+  },
+  "inputField": {
+    "type": "boxed",
+    "useMaterialView": "false",
+    "cornerRadius": "4.0",
+    "focusColor": "#0071BC",
+    "textPadding": "5",
+    "background": "#ffffff",
+    "fontStyle": "Bold",
+    "labelFontFace": "Bold",
+    "labelFontSize": "12",
+    "labelFontColor": "#131313"
+  },
+  "secondaryButton": {
+    "useNavigationArrow": "false",
+    "width": "WRAP_CONTENT",
+    "height": "27",
+    "buttonAlignment": "LEFT",
+    "buttonBackground": "#ebebeb",
+    "buttonCornerRadius": "12.0",
+    "textColor": "#000000",
+    "textSize": "15",
+    "fontFace": "Regular"
+  },
+  "labelButton": {
+    "color": "#ebebeb",
+    "textColor": "#000000",
+    "textFontFace": "Regular",
+    "cornerRadius": "12.0",
+    "textSize": "15",
+    "height": "27"
+  },
+  "attachPOHeaders": "true",
+  "upiCollectWithGodel": "false",
+  "verifyMobile": "true",
+  "useSeperatedSections": "true",
+  "verifyVpa": "false",
+  "language": "english",
+  "labelBackground": "#EBEBEB",
+  "topRowVisibility": "false",
+  "showSearchBoxStroke": "true",
+  "showProcessingPayment": "true",
+  "bottomMargin": "16",
+  "widgets": {
+    "allowed": ["quickPay", "paymentPage"],
+    "primary": "quickPay"
+  },
+  "useQuickPayRanking": "false",
+  "paymentOptionFontFace": "SemiBold",
+  "gridProps": {
+    "useTick": "false",
+    "useStroke": "false",
+    "itemSize": "60",
+    "gridSelectedStroke": "",
+    "gridViewBackground": "#ffffff",
+    "horizontalFade": "true",
+    "fadingEdgeLength": "150",
+    "gridLogoStroke": "",
+    "useButtonForSelection": "false",
+    "strokeCornerRadius": "",
+    "gridFontSize": "14",
+    "gridIconSize": "38"
+  },
+  "mandateViewProps": {
+    "textColor": "#a58a21",
+    "backgroundColor": "#f4efd3",
+    "cornerRadius": "5.0",
+    "padding": {
+      "left": "3",
+      "right": "6",
+      "vertical": "10"
+    },
+    "textSize": "12"
+  },
+  "offerViewProps": {
+    "textColor": "#a58a21",
+    "backgroundColor": "#f4efd3",
+    "cornerRadius": "4.0",
+    "padding": {
+      "left": "10",
+      "right": "8",
+      "vertical": "10"
+    },
+    "textSize": "12"
+  },
+  "mandateInstruments": [],
+  "highlightMessage": {
+    "textColor": "#000000",
+    "backgroundColor": "#f0f0f0",
+    "textFontFace": "Regular",
+    "padding": {
+      "vertical": "10",
+      "horizontal": "14"
+    }
+  },
+  "outageViewProps": {
+    "showOutageView": "true",
+    "textColor": "#FF1E0C",
+    "backgroundColor": "#ffffff",
+    "cornerRadius": "4.0",
+    "padding": {
+      "left": "0",
+      "right": "0",
+      "vertical": "0"
+    },
+    "textSize": "12",
+    "outageMessage": "Experiencing low success rates for",
+    "restrictPayment": "false"
   }
+}
